@@ -69,3 +69,11 @@ jobs:
           echo "✅ Docker image built!"
           echo "✅ Image pushed to Docker Hub!"
           echo "🚀 Pipeline completed successfully!"
+
+# Step 5 - Run tests with coverage
+      - name: Run Tests with Coverage
+        run: npm test
+
+# Step 6 - Check coverage is above 80%
+      - name: Check Coverage Threshold
+        run: npx jest --coverage --coverageThreshold='{"global":{"lines":80,"functions":80,"branches":80}}'

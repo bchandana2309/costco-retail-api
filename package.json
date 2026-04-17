@@ -2,9 +2,10 @@
   "name": "costco-retail-api",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "jest",
+    "scripts": {
+    "test": "jest --coverage",
     "start": "node index.js"
+},
 },
   "keywords": [],
   "author": "",
