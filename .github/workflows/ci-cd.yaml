@@ -1,8 +1,10 @@
-test:
+jobs:              ← jobs goes at TOP level!
+
+  test:
     name: Run Tests
     runs-on: ubuntu-latest
     
-    steps:
+    steps:         ← steps goes inside job!
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -11,8 +13,17 @@ test:
         with:
           node-version: '18'
 
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package.json') }}
+
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
+      - name: Run Tests with Coverage
         run: npm test
+
+      - name: Check Coverage Threshold
+        run: npx jest --coverage --coverageThreshold='{"global":{"lines":80,"functions":80,"branches":80}}'
