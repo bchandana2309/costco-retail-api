@@ -1,6 +1,6 @@
 const app = require('./src/app');
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => {
     console.log(`Costco Retail API running on port ${PORT}`);
