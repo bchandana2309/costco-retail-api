@@ -1,0 +1,12 @@
+
+
+*** Test Cases ***
+Secure Erase With Optional Verification Screen
+    [Documentation]    Verify that the user can skip the optional verification screen
+    ...                and continue to the Secure Erase warning screen.
+    [Tags]    secure_erase    verification    positive
+
+    Launch Secure Erase
+
+    ${verification_present}=    Is Verification Screen Present
+
